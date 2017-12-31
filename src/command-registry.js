@@ -451,7 +451,8 @@ function extractDescriptor (name, listener) {
     _.omit(listener, 'didDispatch'),
     {
       name,
-      displayName: listener.displayName ? listener.displayName : _.humanizeEventName(name)
+      // TDSHACK need option for nonhumans.  robot mode.
+      displayName: name // listener.displayName ? listener.displayName : _.humanizeEventName(name)
     }
   )
 }
