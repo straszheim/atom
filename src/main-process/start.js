@@ -29,6 +29,7 @@ module.exports = function start (resourcePath, startTime) {
   atomPaths.setUserData(app)
   setupCompileCache()
 
+  // args.v = 9
   if (handleStartupEventWithSquirrel()) {
     return
   } else if (args.test && args.mainProcess) {
@@ -68,6 +69,7 @@ module.exports = function start (resourcePath, startTime) {
     app.removeListener('open-file', addPathToOpen)
     app.removeListener('open-url', addUrlToOpen)
     const AtomApplication = require(path.join(args.resourcePath, 'src', 'main-process', 'atom-application'))
+    console.log("starting application, args:", args)
     AtomApplication.open(args)
   })
 }
